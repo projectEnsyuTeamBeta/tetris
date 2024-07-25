@@ -18,7 +18,7 @@
 *********************************************************************/
 
 #include	<machine.h>
-#include	<_h_c_lib.h>
+#include	<_hclib.h>
 //#include	<stddef.h>					// Remove the comment when you use errno
 //#include 	<stdlib.h>					// Remove the comment when you use rand()
 #include	"typedefine.h"		// Define Types
