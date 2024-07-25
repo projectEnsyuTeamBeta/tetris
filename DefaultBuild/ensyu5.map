@@ -1,0 +1,87 @@
+Renesas Optimizing Linker (W3.01.00 )             12-Jul-2024 08:33:44
+
+*** Options ***
+
+-subcommand=DefaultBuild\ensyu5.clnk
+-library=DefaultBuild\ensyu5.lib
+-input=DefaultBuild\dbsct.obj
+-input=DefaultBuild\ensyu5.obj
+-input=DefaultBuild\intprg.obj
+-input=DefaultBuild\resetprg.obj
+-input=DefaultBuild\sbrk.obj
+-input=DefaultBuild\vecttbl.obj
+-input=DefaultBuild\ad.obj
+-library=DefaultBuild\lcdlib
+-library=DefaultBuild\i2clib
+-noprelink
+-output=DefaultBuild\ensyu5.abs
+-list=DefaultBuild\ensyu5.map
+-nooptimize
+-start=B_1,R_1,B_2,R_2,B,R,SU,SI/04,PResetPRG/0FFFF8000,C_1,C_2,C,C$DSEC,C$BSEC,C$INIT,C$VTBL,C$VECT,D_1,D_2,D,P,PIntPRG,W_1,W_2,W,L/0FFFF8100,FIXEDVECT/0FFFFFFD0
+-rom=D=R,D_1=R_1,D_2=R_2
+-nologo
+-end
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+B_1
+                                  00000004  00000009         6   1
+R_1
+                                  0000000a  0000005a        51   1
+B_2
+                                  0000005c  00000631       5d6   2
+R_2
+                                  00000632  00000632         0   1
+B
+                                  00000634  00000a47       414   4
+R
+                                  00000a48  00000c8f       248   4
+SU
+                                  00000c90  00000d8f       100   4
+SI
+                                  00000d90  0000108f       300   4
+PResetPRG
+                                  ffff8000  ffff8030        31   1
+C_1
+                                  ffff8100  ffff81d1        d2   1
+C_2
+                                  ffff81d2  ffff95a3      13d2   2
+C
+                                  ffff95a4  ffff960b        68   4
+C$DSEC
+                                  ffff960c  ffff962f        24   4
+C$BSEC
+                                  ffff9630  ffff9647        18   4
+C$INIT
+                                  ffff9648  ffff9648         0   1
+C$VTBL
+                                  ffff9648  ffff9648         0   1
+C$VECT
+                                  ffff9648  ffff9a47       400   4
+D_1
+                                  ffff9a48  ffff9a98        51   1
+D_2
+                                  ffff9a99  ffff9a99         0   1
+D
+                                  ffff9a9c  ffff9ce3       248   4
+P
+                                  ffff9ce4  ffffc670      298d   1
+PIntPRG
+                                  ffffc671  ffffc7f5       185   1
+W_1
+                                  ffffc7f6  ffffc7f6         0   1
+W_2
+                                  ffffc7f6  ffffc7f6         0   1
+W
+                                  ffffc7f6  ffffc7f6         0   1
+L
+                                  ffffc7f8  ffffc838        41   4
+$ADDR_C_FFFFFF80
+                                  ffffff80  ffffff83         4   1
+$ADDR_C_FFFFFFA0
+                                  ffffffa0  ffffffaf        10   1
+FIXEDVECT
+                                  ffffffd0  ffffffff        30   4
