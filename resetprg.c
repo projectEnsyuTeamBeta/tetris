@@ -1,3 +1,4 @@
+@@ -0,0 +1,113 @@
 /*********************************************************************
 *
 * Device     : RX/RX600
@@ -18,7 +19,7 @@
 *********************************************************************/
 
 #include	<machine.h>
-#include	<_hclib.h>
+#include	<_h_c_lib.h>
 //#include	<stddef.h>					// Remove the comment when you use errno
 //#include 	<stdlib.h>					// Remove the comment when you use rand()
 #include	"typedefine.h"		// Define Types
@@ -47,7 +48,7 @@ void main(void);
 
 //extern void srand(_UINT);		// Remove the comment when you use rand()
 //extern _SBYTE *_s1ptr;				// Remove the comment when you use strtok()
-		
+
 //#ifdef __cplusplus				// Use Hardware Setup
 //extern "C" {
 //#endif
@@ -55,7 +56,7 @@ void main(void);
 //#ifdef __cplusplus
 //}
 //#endif
-	
+
 //#ifdef __cplusplus			// Remove the comment when you use global class object
 //extern "C" {					// Sections C$INIT and C$END will be generated
 //#endif
@@ -93,7 +94,7 @@ void PowerON_Reset_PC(void)
 //	errno=0;						// Remove the comment when you use errno
 //	srand((_UINT)1);					// Remove the comment when you use rand()
 //	_s1ptr=NULL;					// Remove the comment when you use strtok()
-		
+
 //	HardwareSetup();				// Use Hardware Setup
     nop();
 
@@ -105,9 +106,8 @@ void PowerON_Reset_PC(void)
 	main();
 
 //	_CLOSEALL();					// Use SIM I/O
-	
+
 //	_CALL_END();					// Remove the comment when you use global class object
 
 	brk();
 }
-
