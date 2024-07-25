@@ -7,7 +7,6 @@ void gameOver(void)
 	initBase();
 	initI2C();
 	initLCD();
-	initAD();
 
 	while (1) {
 		waitTimeMS(10);
