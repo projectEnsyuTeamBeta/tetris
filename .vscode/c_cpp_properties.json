@@ -1,17 +1,45 @@
 {
+  // 2024-04-15 fumiyuki.shimizu@emtech-academy.com
   "configurations": [
     {
-      "name": "windows-gcc-x64",
+      "name": "gcc",
       "includePath": [
         "${workspaceFolder}/**"
+        // "C:/Program Files (x86)/Renesas Electronics/CS+/CC/CC-RX/V3.01.00/include"
       ],
-      "compilerPath": "gcc",
-      "cStandard": "${default}",
-      "cppStandard": "${default}",
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE",
+        // followings are for CS+
+        "__evenaccess=",
+        "__near="
+      ],
+      "compilerPath": "C:/pleiades/2023-06/eclipse/mingw/bin/gcc.exe",
       "intelliSenseMode": "windows-gcc-x64",
-      "compilerArgs": [
-        ""
-      ]
+      "cStandard": "c17",
+      "cppStandard": "c++17"
+    },
+    {
+      // Linux, Mac, and Win32 are special identifiers for configurations that will be autoselected on those platforms.
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "C:/Vc7/include"
+        // "C:/Program Files (x86)/Renesas Electronics/CS+/CC/CC-RX/V3.01.00/include"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE",
+        // followings are for CS+
+        "__evenaccess=",
+        "__near="
+      ],
+      "compilerPath": "C:/Vc7/bin/cl.exe",
+      "intelliSenseMode": "windows-msvc-x86",
+      "cStandard": "c17",
+      "cppStandard": "c++17"
     }
   ],
   "version": 4
