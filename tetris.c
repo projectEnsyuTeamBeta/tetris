@@ -10,8 +10,9 @@ void gameClear(void);
 void gameOver(void);
 void main(void)
 {
-    int i;
-    int j;
+    int i, j;
+    int k, l;
+    int stage = 1; //stage関数で0or1
 
     initBase();
 	initI2C();
@@ -26,6 +27,15 @@ void main(void)
         for(j = 1; j < (WALL_HEIGHT + 1); j++){
             printFstr(HAICHI,j,"?");
             printFstr(HAICHI + 11,j,"?");
+        }
+        for(k = (HAICHI+1); k < (HAICHI+11);k++){
+            for(l = 1; l < (WALL_HEIGHT + 1); l++){
+                if(stage == 0){
+                    printFstr(k,l," ");     // Aを変更（0：非表示/1：ミノ配置）
+                }else if(stage == 1){
+                    printFstr(k,l,"A");
+                }
+            }
         }
         
         PORT0.PDR.BIT.B0 = 0;
