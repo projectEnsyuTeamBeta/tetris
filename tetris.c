@@ -4,6 +4,7 @@
 
 #define WALL_HEIGHT     20
 #define FLOOR_WIDTH     10 + 2
+#define HAICHI      9
 
 void gameClear(void);
 void gameOver(void);
@@ -16,14 +17,14 @@ void main(void)
 	initI2C();
 	initLCD();
 
-
+    setFontSize(16,12);
 	while (1) {
-        for(i = 5; i < FLOOR_WIDTH; i++){
-            drawString(i,0,"?");
+        for(i = HAICHI; i < (FLOOR_WIDTH + HAICHI); i++){
+            printFstr(i,21,"#");
         }
-        for(j = 0; j < WALL_HEIGHT; j++){
-            drawString(5,j,"?");
-            drawString(17,j,"?");
+        for(j = 1; j < (WALL_HEIGHT + 1); j++){
+            printFstr(HAICHI,j,"?");
+            printFstr(HAICHI + 11,j,"?");
         }
         
         PORT0.PDR.BIT.B0 = 0;
