@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (W3.01.00 )             26-Jul-2024 14:23:59
+Renesas Optimizing Linker (W3.01.00 )             26-Jul-2024 15:47:23
 
 *** Options ***
 
@@ -14,6 +14,7 @@ Renesas Optimizing Linker (W3.01.00 )             26-Jul-2024 14:23:59
 -input=DefaultBuild\gameClear.obj
 -input=DefaultBuild\gameOver.obj
 -input=DefaultBuild\gameStart.obj
+-input=DefaultBuild\dropMino.obj
 -library=DefaultBuild\lcdlib
 -library=DefaultBuild\i2clib
 -noprelink
@@ -73,17 +74,17 @@ D_2
 D
                                   ffff9a9c  ffff9ce3       248   4
 P
-                                  ffff9ce4  ffffc776      2a93   1
+                                  ffff9ce4  ffffc7ae      2acb   1
 PIntPRG
-                                  ffffc777  ffffc8fb       185   1
+                                  ffffc7af  ffffc933       185   1
 W_1
-                                  ffffc8fc  ffffc8fc         0   1
+                                  ffffc934  ffffc934         0   1
 W_2
-                                  ffffc8fc  ffffc8fc         0   1
+                                  ffffc934  ffffc934         0   1
 W
-                                  ffffc8fc  ffffc8fc         0   1
+                                  ffffc934  ffffc934         0   1
 L
-                                  ffffc8fc  ffffc978        7d   4
+                                  ffffc934  ffffc9b4        81   4
 $ADDR_C_FFFFFF80
                                   ffffff80  ffffff83         4   1
 $ADDR_C_FFFFFFA0

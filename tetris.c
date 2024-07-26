@@ -11,17 +11,9 @@ void gameOver(void);
 void dropMino(void);
 void main(void)
 {
-	char I[4]={"####"};
     int i, j;
     int k, l;
-<<<<<<< HEAD
-    int x,y;
     int stage = 0; //stage関数で0or1
-    x=(HAICHI+5);
-    
-=======
-    int stage = 0; //stage関数で0or1
->>>>>>> main
 
     initBase();
 	initI2C();
@@ -37,7 +29,7 @@ void main(void)
             printFstr(HAICHI,j,"?");
             printFstr(HAICHI + 11,j,"?");
         }
-       /* for(k = (HAICHI+1); k < (HAICHI+11);k++){
+       for(k = (HAICHI+1); k < (HAICHI+11);k++){
             for(l = 1; l < (WALL_HEIGHT + 1); l++){
                 if(stage == 0){
                     printFstr(k,l," ");     // Aを変更（0：非表示/1：ミノ配置）
@@ -45,13 +37,7 @@ void main(void)
                     printFstr(k,l,"A");
                 }
             }
-        }*/
-	
-	
-	/*for(y=5; y<9; y++){
-		printFstr(x,y,"I");
-	}*/
-	printFstr(x,18,"%s",I);
+        }
 	
 	
         

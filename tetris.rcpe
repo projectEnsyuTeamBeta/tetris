@@ -11,6 +11,7 @@
       <Path>gameStart.c</Path>
       <Path>gameOver.c</Path>
       <Path>gameClear.c</Path>
+      <Path>dropMino.c</Path>
       <Path>tetris.c</Path>
       <Path>intprg.c</Path>
       <Path>resetprg.c</Path>
@@ -86,6 +87,7 @@
           <Path>DefaultBuild\gameClear.obj</Path>
           <Path>DefaultBuild\gameOver.obj</Path>
           <Path>DefaultBuild\gameStart.obj</Path>
+          <Path>DefaultBuild\dropMino.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>.</IncludePathForC>

@@ -39,6 +39,13 @@
       <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
       <ParentItem>c85d671f-1944-4d41-9237-731933ae940d</ParentItem>
     </Instance>
+    <Instance Guid="361fbab8-5d86-41cf-8b90-fad9b9406a2b">
+      <Name>dropMino.c</Name>
+      <Type>File</Type>
+      <RelativePath>dropMino.c</RelativePath>
+      <TreeImageGuid>941832c1-fc3b-4e1b-94e8-01ea17128b42</TreeImageGuid>
+      <ParentItem>c85d671f-1944-4d41-9237-731933ae940d</ParentItem>
+    </Instance>
     <Instance Guid="07cb7751-b2fc-4726-a1f3-16259623d93f">
       <Name>tetris.c</Name>
       <Type>File</Type>
@@ -231,7 +238,9 @@
       <SourceItemType8>CSource</SourceItemType8>
       <SourceItemGuid9>a24e2d61-014b-42d5-ba0a-e16ba357a27a</SourceItemGuid9>
       <SourceItemType9>CSource</SourceItemType9>
-      <SourceItemCount>10</SourceItemCount>
+      <SourceItemGuid10>361fbab8-5d86-41cf-8b90-fad9b9406a2b</SourceItemGuid10>
+      <SourceItemType10>CSource</SourceItemType10>
+      <SourceItemCount>11</SourceItemCount>
       <LastDeviceChangedCounter>0</LastDeviceChangedCounter>
     </Instance>
     <Instance Guid="9e208646-ccba-4100-a676-29b1efe6545f">
@@ -1186,6 +1195,10 @@ D_2=R_2
       <ItemAddTime>638575970877340578</ItemAddTime>
       <ItemAddTimeCount>0</ItemAddTimeCount>
     </Instance>
+    <Instance Guid="361fbab8-5d86-41cf-8b90-fad9b9406a2b">
+      <ItemAddTime>638576023803547721</ItemAddTime>
+      <ItemAddTimeCount>0</ItemAddTimeCount>
+    </Instance>
     <Instance Guid="a7be515f-f007-45ed-9059-4e1500c0f74d">
       <TimeTagModified-SourceItem0--0>-8588228254982332518</TimeTagModified-SourceItem0--0>
       <SourceItem0-IsLockedByUser>False</SourceItem0-IsLockedByUser>
@@ -1227,6 +1240,10 @@ D_2=R_2
       <SourceItem9-IsLockedByUser>False</SourceItem9-IsLockedByUser>
       <SourceItem9-BuildingTarget-0>True</SourceItem9-BuildingTarget-0>
       <SourceItem9-IndividualCompileOption-0>False</SourceItem9-IndividualCompileOption-0>
+      <TimeTagModified-SourceItem10--0>-8584796337051228087</TimeTagModified-SourceItem10--0>
+      <SourceItem10-IsLockedByUser>False</SourceItem10-IsLockedByUser>
+      <SourceItem10-BuildingTarget-0>True</SourceItem10-BuildingTarget-0>
+      <SourceItem10-IndividualCompileOption-0>False</SourceItem10-IndividualCompileOption-0>
     </Instance>
   </Class>
   <Class Guid="44fa27c9-0aa0-4297-bd3b-2c5c5bdb8881">
