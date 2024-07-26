@@ -59,7 +59,7 @@ void dropMino(void)
 	    }*/
 	  
 //追加
-    while(height < 21){
+   /* while(height < 21){
         while(x > 10 && x < 19){ 
             if(PORT0.PIDR.BIT.B0 == 1){
                 x -= 1;
@@ -75,5 +75,50 @@ void dropMino(void)
             printFstr(x,height,"A");
         }
         height++;
+    }*/
+    
+    //追加２
+    while(height < 21){
+        while(1){ 
+            if(PORT0.PIDR.BIT.B0 == 1 && x > 10){
+                x -= 1;
+                break;
+            }else if(PORT0.PIDR.BIT.B2 == 1 && x < 19){
+                x += 1;
+                break;
+            }
+            for(time = 0;time <10;time++);
+            break;
+        }
+        for(time = 0;time < 1000;time++){
+            printFstr(x,height,"A");
+        }
+	printFstr(x,height," ");
+        height++;
     }
+    
+    //追加２の亜種　ｘ軸をよりスムーズに移動できないか考えたが、あまり変わらない模様
+      /*while(height < 21){
+        for(time = 0;time < 1000; time++){
+            printFstr(x,height,"A");
+        }
+	 while(1){ 
+            if(PORT0.PIDR.BIT.B0 == 1 && x > 10){
+		printFstr(x,height," ");
+                x -= 1;
+		printFstr(x,height,"A");
+                break;
+            }else if(PORT0.PIDR.BIT.B2 == 1 && x < 19){
+		printFstr(x,height," ");
+                x += 1;
+		printFstr(x,height,"A");
+                break;
+            }
+            for(time = 0;time <10;time++);
+            break;
+        }
+	printFstr(x,height," ");
+        height++;
+    }*/
+    
 }
