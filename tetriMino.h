@@ -2,6 +2,12 @@ typedef struct MINO
 {
     struct I
     {
+<<<<<<< HEAD
+        char A[5]{"¡¡¡¡"};
+    }I_mino;
+
+  /*  typedef struct T
+=======
         int A[4][4]{
             {0,0,0,0},
             {1,1,1,1},
@@ -29,6 +35,7 @@ typedef struct MINO
     };
 
     struct T
+>>>>>>> main
     {
         int A[4][4]{
             {0,0,0,0},
@@ -194,5 +201,11 @@ typedef struct MINO
             {0,1,1,0},
             {0,0,0,0}
         };
+<<<<<<< HEAD
+    }O_mino;
+    */
+    
+=======
     };
+>>>>>>> main
 }MINO;

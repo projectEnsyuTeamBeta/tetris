@@ -29,7 +29,7 @@ void main(void)
             printFstr(HAICHI,j,"?");
             printFstr(HAICHI + 11,j,"?");
         }
-        for(k = (HAICHI+1); k < (HAICHI+11);k++){
+       for(k = (HAICHI+1); k < (HAICHI+11);k++){
             for(l = 1; l < (WALL_HEIGHT + 1); l++){
                 if(stage == 0){
                     printFstr(k,l," ");     // Aを変更（0：非表示/1：ミノ配置）
@@ -38,6 +38,8 @@ void main(void)
                 }
             }
         }
+	
+	
         
         /* PORT0.PDR.BIT.B0 = 0;
         PORT0.PDR.BIT.B1 = 0;
