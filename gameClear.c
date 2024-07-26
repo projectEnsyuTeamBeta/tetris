@@ -1,11 +1,11 @@
 
-
 #include "lcdlib.h"
 #include "i2clib.h"
 #include "ad.h"
 
+void gameClear(void);
 
-void main(void)
+void gameClear(void)
 {
 	initBase();
 	initI2C();
