@@ -6,6 +6,9 @@
 -input=DefaultBuild\sbrk.obj
 -input=DefaultBuild\vecttbl.obj
 -input=DefaultBuild\ad.obj
+-input=DefaultBuild\gameClear.obj
+-input=DefaultBuild\gameOver.obj
+-input=DefaultBuild\gameStart.obj
 -library=DefaultBuild\lcdlib
 -library=DefaultBuild\i2clib
 -noprelink

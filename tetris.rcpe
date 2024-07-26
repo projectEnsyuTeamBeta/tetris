@@ -8,6 +8,9 @@
   <Project Name="tetris" Type="Application">
     <Files>
       <Path>dbsct.c</Path>
+      <Path>gameStart.c</Path>
+      <Path>gameOver.c</Path>
+      <Path>gameClear.c</Path>
       <Path>tetris.c</Path>
       <Path>intprg.c</Path>
       <Path>resetprg.c</Path>
@@ -16,6 +19,7 @@
       <Path>iodefine.h</Path>
       <Path>sbrk.h</Path>
       <Path>stacksct.h</Path>
+      <Path>tetriMino.h</Path>
       <Path>typedefine.h</Path>
       <Path>vect.h</Path>
       <Path>lcdlib.h</Path>
@@ -37,6 +41,7 @@
         <CompileOptions>
           <Option>-cpu=rx600</Option>
           <Option>-lang=c</Option>
+          <Option>-include=.</Option>
           <Option>-output=obj</Option>
           <Option>-debug</Option>
           <Option>-nologo</Option>
@@ -78,8 +83,13 @@
           <Path>DefaultBuild\sbrk.obj</Path>
           <Path>DefaultBuild\vecttbl.obj</Path>
           <Path>DefaultBuild\ad.obj</Path>
+          <Path>DefaultBuild\gameClear.obj</Path>
+          <Path>DefaultBuild\gameOver.obj</Path>
+          <Path>DefaultBuild\gameStart.obj</Path>
         </LinkOrder>
-        <CommonOptions />
+        <CommonOptions>
+          <IncludePathForC>.</IncludePathForC>
+        </CommonOptions>
       </BuildMode>
     </BuildOptions>
   </Project>
