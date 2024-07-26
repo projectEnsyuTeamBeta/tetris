@@ -18,6 +18,7 @@ void main(void)
 	initLCD();
 
     setFontSize(16,12);
+    setTextColor(CLR_GREY);
 	while (1) {
         for(i = HAICHI; i < (FLOOR_WIDTH + HAICHI); i++){
             printFstr(i,21,"#");
