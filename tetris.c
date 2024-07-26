@@ -1,9 +1,12 @@
 #include "lcdlib.h"
 #include "i2clib.h"
+#include "iodefine.h"
 
 #define WALL_HEIGHT     20
 #define FLOOR_WIDTH     10 + 2
 
+void gameClear(void);
+void gameOver(void);
 void main(void)
 {
     int i;
@@ -23,13 +26,13 @@ void main(void)
             drawString(17,j,"?");
         }
         
-        PORT0.PDR.BIT.B4 = 0;
-        PORT0.PDR.BIT.B5 = 0;
-        PORT0.PDR.BIT.B6 = 0;
+        PORT0.PDR.BIT.B0 = 0;
+        PORT0.PDR.BIT.B1 = 0;
+        PORT0.PDR.BIT.B2 = 0;
 
-        if(PORT0.PIDR.BIT.B4 == 1){
+        if(PORT0.PIDR.BIT.B0 == 1){
             gameClear();
-        }else if(PORT0.PIDR.BIT.B6 == 1){
+        }else if(PORT0.PIDR.BIT.B2 == 1){
             gameOver();
         }
 	}
