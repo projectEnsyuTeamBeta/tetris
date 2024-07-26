@@ -3,7 +3,7 @@
 #include "ad.h"
 
 
-void main(void)
+void gameOver(void)
 {
 	initBase();
 	initI2C();
