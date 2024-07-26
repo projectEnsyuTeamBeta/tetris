@@ -8,15 +8,20 @@
 
 void gameClear(void);
 void gameOver(void);
+void dropMino(void);
 void main(void)
 {
 	char I[4]={"####"};
     int i, j;
     int k, l;
+<<<<<<< HEAD
     int x,y;
     int stage = 0; //stageŠÖ”‚Å0or1
     x=(HAICHI+5);
     
+=======
+    int stage = 0; //stageŠÖ”‚Å0or1
+>>>>>>> main
 
     initBase();
 	initI2C();
@@ -50,7 +55,7 @@ void main(void)
 	
 	
         
-        PORT0.PDR.BIT.B0 = 0;
+        /* PORT0.PDR.BIT.B0 = 0;
         PORT0.PDR.BIT.B1 = 0;
         PORT0.PDR.BIT.B2 = 0;
 
@@ -58,6 +63,8 @@ void main(void)
             gameClear();
         }else if(PORT0.PIDR.BIT.B2 == 1){
             gameOver();
-        }
+        } */
+
+        dropMino();
 	}
 }
