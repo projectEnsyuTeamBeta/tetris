@@ -8,11 +8,12 @@
 
 void gameClear(void);
 void gameOver(void);
+void dropMino(void);
 void main(void)
 {
     int i, j;
     int k, l;
-    int stage = 1; //stageä÷êîÇ≈0or1
+    int stage = 0; //stageä÷êîÇ≈0or1
 
     initBase();
 	initI2C();
@@ -38,7 +39,7 @@ void main(void)
             }
         }
         
-        PORT0.PDR.BIT.B0 = 0;
+        /* PORT0.PDR.BIT.B0 = 0;
         PORT0.PDR.BIT.B1 = 0;
         PORT0.PDR.BIT.B2 = 0;
 
@@ -46,6 +47,8 @@ void main(void)
             gameClear();
         }else if(PORT0.PIDR.BIT.B2 == 1){
             gameOver();
-        }
+        } */
+
+        dropMino();
 	}
 }
