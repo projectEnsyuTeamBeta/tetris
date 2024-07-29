@@ -30,6 +30,7 @@
       <Path>smino.c</Path>
       <Path>tmino.c</Path>
       <Path>zmino.c</Path>
+      <Path>field.h</Path>
     </Files>
     <DebugOptions>
       <ConnectSettings>
