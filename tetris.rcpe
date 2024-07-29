@@ -7,11 +7,11 @@
   </Placeholders>
   <Project Name="tetris" Type="Application">
     <Files>
+      <Path>dropMino.c</Path>
       <Path>dbsct.c</Path>
       <Path>gameStart.c</Path>
       <Path>gameOver.c</Path>
       <Path>gameClear.c</Path>
-      <Path>dropMino.c</Path>
       <Path>tetris.c</Path>
       <Path>intprg.c</Path>
       <Path>resetprg.c</Path>
@@ -20,12 +20,16 @@
       <Path>iodefine.h</Path>
       <Path>sbrk.h</Path>
       <Path>stacksct.h</Path>
-      <Path>tetriMino.h</Path>
       <Path>typedefine.h</Path>
       <Path>vect.h</Path>
       <Path>lcdlib.h</Path>
-      <Path>ad.c</Path>
-      <Path>ad.h</Path>
+      <Path>imino.c</Path>
+      <Path>jmino.c</Path>
+      <Path>lmino.c</Path>
+      <Path>omino.c</Path>
+      <Path>smino.c</Path>
+      <Path>tmino.c</Path>
+      <Path>zmino.c</Path>
     </Files>
     <DebugOptions>
       <ConnectSettings>
@@ -83,11 +87,17 @@
           <Path>DefaultBuild\resetprg.obj</Path>
           <Path>DefaultBuild\sbrk.obj</Path>
           <Path>DefaultBuild\vecttbl.obj</Path>
-          <Path>DefaultBuild\ad.obj</Path>
           <Path>DefaultBuild\gameClear.obj</Path>
           <Path>DefaultBuild\gameOver.obj</Path>
           <Path>DefaultBuild\gameStart.obj</Path>
           <Path>DefaultBuild\dropMino.obj</Path>
+          <Path>DefaultBuild\imino.obj</Path>
+          <Path>DefaultBuild\jmino.obj</Path>
+          <Path>DefaultBuild\lmino.obj</Path>
+          <Path>DefaultBuild\omino.obj</Path>
+          <Path>DefaultBuild\smino.obj</Path>
+          <Path>DefaultBuild\tmino.obj</Path>
+          <Path>DefaultBuild\zmino.obj</Path>
         </LinkOrder>
         <CommonOptions>
           <IncludePathForC>.</IncludePathForC>

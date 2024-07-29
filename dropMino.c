@@ -1,124 +1,44 @@
-#include "lcdlib.h"
-#include "i2clib.h"
-#include "iodefine.h"
-// #include "tetriMino.h"
+#include <stdlib.h>
+
+void imino(void);
+void tmino(void);
+void zmino(void);
+void smino(void);
+void lmino(void);
+void jmino(void);
+void omino(void);
 
 void dropMino(void)
 {
-
-    //int height;
-    int height=1;
-    int x = 14;
-    int time;
+    int max = 6; // 乱数最大
+    int min = 0; // 乱数最小
+    int makeMino = min+(int)(rand()*(max-min+1)/(1+RAND_MAX)); //　乱数発生
     
-    PORT0.PDR.BIT.B0 = 0;
-    PORT0.PDR.BIT.B2 = 0;
-
-	 /*   for(height=1; height < 21; height++){
-	            for(time = 0; time < 10000; time++){
-		
-			    printFstr(x,height,"A");
-	                while(x > 10 && x < 20){
-	                    if(PORT0.PIDR.BIT.B0 == 1){
-				
-	                        x -= 1;
-				
-	                    }
-			else if(PORT0.PIDR.BIT.B2 == 1){
-				
-	                        x += 1;
-				
-	                    }
-	                }
-	            }
-	    }*/
-	    
-	    
-	    //落ちる
-	  /*   while(height<20){
-	    printFstr(x,height,"A");
-	   for(time=0; time<100000000; time++){
-		   ;
-	   }
-	   printFstr(x,height," ");
-	   height++;
-	    }*/
-	    
-	    //横に動く
-	  /*  while(1){
-	    printFstr(x,height,"A");
-	    if(PORT0.PIDR.BIT.B0 == 1 && x>10){
-	                        x -= 1;
-				printFstr(x,height,"A");
-	                    }
-			else if(PORT0.PIDR.BIT.B2 == 1 && x<19){
-	                        x += 1;
-				printFstr(x,height,"A");
-	    }
-	     
-	    }*/
-	  
-//追加
-   /* while(height < 21){
-        while(x > 10 && x < 19){ 
-            if(PORT0.PIDR.BIT.B0 == 1){
-                x -= 1;
-                break;
-            }else if(PORT0.PIDR.BIT.B2 == 1){
-                x += 1;
-                break;
-            }
-            for(time = 0;time <10;time++);
-            break;
-        }
-        for(time = 0;time < 2500;time++){
-            printFstr(x,height,"A");
-        }
-        height++;
-    }*/
+    switch (makeMino)
+    {
+    case 0:
+        imino();
+        break;
+    case 1:
+        tmino();
+        break;
+    case 2:
+        zmino();
+        break;
+    case 3:
+        smino();
+        break;
+    case 4:
+        lmino();
+        break;
+    case 5:
+        jmino();
+        break;
+    case 6:
+        omino();
+        break;
     
-    //追加２
-    while(height < 21){
-        while(1){ 
-            if(PORT0.PIDR.BIT.B0 == 1 && x > 10){
-                x -= 1;
-                break;
-            }else if(PORT0.PIDR.BIT.B2 == 1 && x < 19){
-                x += 1;
-                break;
-            }
-            for(time = 0;time <10;time++);
-            break;
-        }
-        for(time = 0;time < 1000;time++){
-            printFstr(x,height,"A");
-        }
-	printFstr(x,height," ");
-        height++;
+    default:
+        break;
     }
-    
-    //追加２の亜種　ｘ軸をよりスムーズに移動できないか考えたが、あまり変わらない模様
-      /*while(height < 21){
-        for(time = 0;time < 1000; time++){
-            printFstr(x,height,"A");
-        }
-	 while(1){ 
-            if(PORT0.PIDR.BIT.B0 == 1 && x > 10){
-		printFstr(x,height," ");
-                x -= 1;
-		printFstr(x,height,"A");
-                break;
-            }else if(PORT0.PIDR.BIT.B2 == 1 && x < 19){
-		printFstr(x,height," ");
-                x += 1;
-		printFstr(x,height,"A");
-                break;
-            }
-            for(time = 0;time <10;time++);
-            break;
-        }
-	printFstr(x,height," ");
-        height++;
-    }*/
-    
 }
