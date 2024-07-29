@@ -1,6 +1,7 @@
 #include "lcdlib.h"
 #include "i2clib.h"
 #include "iodefine.h"
+#include "field.h"
 #include <string.h>
 
 #define LEFT_WALL   10  // ƒ~ƒm‚É‚æ‚Á‚Ä‰Â•Ï•K—v
@@ -79,6 +80,11 @@ void imino(void)
             }
             height-=4;
         }
-        height++;
+        if(stage[height][x] == 0){
+            height++;
+        }else{
+            stage[height][x] = 1;
+        }
+        
     }
 }
