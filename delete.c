@@ -1,6 +1,7 @@
 #include "lcdlib.h"
 #include "i2clib.h"
 #include "iodefine.h"
+#include "field.h"
 #include <string.h>
 
 #define HIGH_MINO 0
