@@ -49,9 +49,35 @@ void lmino(void)
 	//ˆÚ“®E‰ñ“]
         while(1){ 
             if(PORT0.PIDR.BIT.B0 == 1 && x > LEFT_WALL){
+                for(i = 0; i < 4; i++){
+                    for(j = 0; j < 4; j++){
+                        if(L_mino[i][j] == 1){
+                            printFstr(x,height," ");
+                        }else{
+                            printFstr(x,height," ");
+                        }
+                        x+=1;
+                    }
+                    x-=4;
+                    height+=1;
+                }
+                height-=4;
                 x -= 1;
                 break;
             }else if(PORT0.PIDR.BIT.B2 == 1 && x < RIGHT_WALL){
+                 for(i = 0; i < 4; i++){
+                    for(j = 0; j < 4; j++){
+                        if(L_mino[i][j] == 1){
+                            printFstr(x,height," ");
+                        }else{
+                            printFstr(x,height," ");
+                        }
+                        x+=1;
+                    }
+                    x-=4;
+                    height+=1;
+                }
+                height-=4;
                 x += 1;
                 break;
             }else if(PORT0.PIDR.BIT.B1 == 1){
