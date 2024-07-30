@@ -22,6 +22,7 @@ void tmino(void)
     int time;
     int temp[4][4];     //回転
     int k,l;
+    int count=0;
 
     PORT0.PDR.BIT.B0 = 0;
     PORT0.PDR.BIT.B1 = 0;
@@ -48,9 +49,35 @@ void tmino(void)
 	//移動・回転
         while(1){ 
             if(PORT0.PIDR.BIT.B0 == 1 && x > LEFT_WALL){
+                for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
                 x -= 1;
                 break;
             }else if(PORT0.PIDR.BIT.B2 == 1 && x < RIGHT_WALL){
+                for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
                 x += 1;
                 break;
             }else if(PORT0.PIDR.BIT.B1 == 1){
@@ -60,45 +87,158 @@ void tmino(void)
                     }
                 }
                 memcpy(T_mino, temp, sizeof temp);
+                count++;
                 break;
             }
             for(time = 0;time <10;time++);
             break;
         }
-	
-	
-	//設置処理1　途中にミノがあった場合
-	if(stage[height+1][x+3]==2 || stage[height+1][x+4]==2 || stage[height+1][x+5]==2){
-		stage[height][x+5]=2;
-		stage[height][x+4]=2;
-		stage[height][x+3]=2;
-		stage[height-1][x+4]=2;
-		break;
-	}
-	//設置処理2　一番下まで行く場合
-	else if(height==17){
-		stage[height+1][x+5]=2;
-		stage[height+1][x+4]=2;
-		stage[height+1][x+3]=2;
-		stage[height][x+4]=2;
-		break;
-	}
-	//落下
-        for(time = 0;time < 2;time++){
-            for(i = 0; i < 4; i++){
-                for(j = 0; j < 4; j++){
-                    if(T_mino[i][j] == 1){
-                        printFstr(x,height," ");
-                    }else{
-                        printFstr(x,height," ");
-                    }
-                    x+=1;
-                }
-                x-=4;
-                height+=1;
+
+        //回転後の形ごとに設置処理を変える
+        if(count%4==0){
+            //設置処理1　途中にミノがあった場合
+            if(stage[height+1][x+3]==2 || stage[height+1][x+4]==2 || stage[height+1][x+5]==2){
+                stage[height][x+5]=2;
+                stage[height][x+4]=2;
+                stage[height][x+3]=2;
+                stage[height-1][x+4]=2;
+                break;
             }
-            height-=4;
+            //設置処理2　一番下まで行く場合
+            else if(height==17){
+                stage[height+1][x+5]=2;
+                stage[height+1][x+4]=2;
+                stage[height+1][x+3]=2;
+                stage[height][x+4]=2;
+                break;
+            }
+            //落下
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
         }
-        height++;
+        else if(count%4==1){
+            //設置処理1　途中にミノがあった場合
+            if(stage[height+1][x+4]==2 || stage[height][x+5]==2){
+                stage[height][x+4]=2;
+                stage[height-1][x+4]=2;
+                stage[height-2][x+4]=2;
+                stage[height-1][x+5]=2;
+                break;
+            }
+            //設置処理2　一番下まで行く場合
+            else if(height==17){
+                stage[height+1][x+4]=2;
+                stage[height][x+4]=2;
+                stage[height-1][x+4]=2;
+                stage[height][x+5]=2;
+                break;
+            }
+            //落下
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+        }
+        else if(count%4==2){
+            //設置処理1　途中にミノがあった場合
+            if(stage[height+1][x+5]==2 || stage[height][x+4]==2 || stage[height][x+6]==2){
+                stage[height][x+5]=2;
+                stage[height-1][x+4]=2;
+                stage[height-1][x+5]=2;
+                stage[height-1][x+6]=2;
+                break;
+            }
+            //設置処理2　一番下まで行く場合
+            else if(height==17){
+                stage[height+1][x+5]=2;
+                stage[height][x+4]=2;
+                stage[height][x+5]=2;
+                stage[height][x+6]=2;
+                break;
+            }
+            //落下
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+
+        }
+        else if(count%4==3){
+            //設置処理1　途中にミノがあった場合
+            if(stage[height+1][x+5]==2 || stage[height][x+4]==2){
+                stage[height][x+5]=2;
+                stage[height-1][x+5]=2;
+                stage[height-2][x+5]=2;
+                stage[height-1][x+4]=2;
+                break;
+            }
+            //設置処理2　一番下まで行く場合
+            else if(height==17){
+                stage[height+1][x+5]=2;
+                stage[height][x+5]=2;
+                stage[height-1][x+5]=2;
+                stage[height][x+4]=2;
+                break;
+            }
+            //落下
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(T_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+        }
+
+	
+	
+            
     }
 }
