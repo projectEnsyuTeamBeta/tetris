@@ -2,7 +2,6 @@
 #include "i2clib.h"
 #include "iodefine.h"
 #include <string.h>
-#include "tetris.c"
 
 #define HIGH_MINO 0
 #define UNDER_MINO 20
