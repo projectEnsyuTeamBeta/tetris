@@ -55,15 +55,9 @@ void omino(void)
             }else if(PORT0.PIDR.BIT.B2 == 1 && x < RIGHT_WALL){
                 x += 1;
                 break;
-            }/*else if(PORT0.PIDR.BIT.B1 == 1){
-                for(k = 0; k < 4; k++){     // ‰ñ“]
-                    for(l = 0; l < 4; l++){
-                        temp[l][k] = O_mino[3 - k][l];
-                    }
-                }
-                memcpy(O_mino, temp, sizeof temp);
-                break;
-            }*/
+            }else if(PORT0.PIDR.BIT.B1 == 1){
+                ;       //‰ñ“]‚µ‚È‚¢
+            }
             for(time = 0;time <10;time++);
             break;
         }

@@ -10,7 +10,7 @@
 
 void jmino(void)
 {
-    int J_mino[4][5] = {
+    int J_mino[4][4] = {
         {0,0,0,0},
         {1,0,0,0},
         {1,1,1,0},
@@ -22,13 +22,14 @@ void jmino(void)
     int time;
     int temp[4][4];     //‰ñ“]
     int k,l;
+    int cnt=0;
 
     PORT0.PDR.BIT.B0 = 0;
     PORT0.PDR.BIT.B1 = 0;
     PORT0.PDR.BIT.B2 = 0;
 
     while(height < GROUND){
-	//•`‰æ
+	//ƒ~ƒm•`‰æ
         for(time = 0;time < speed;time++){
             for(i = 0; i < 4; i++){
                 for(j = 0; j < 4; j++){
@@ -44,7 +45,7 @@ void jmino(void)
             }
             height-=4;
         }
-
+	
 	//ˆÚ“®E‰ñ“]
         while(1){ 
             if(PORT0.PIDR.BIT.B0 == 1 && x > LEFT_WALL){
@@ -54,6 +55,7 @@ void jmino(void)
                 x += 1;
                 break;
             }else if(PORT0.PIDR.BIT.B1 == 1){
+                cnt++;
                 for(k = 0; k < 4; k++){     // ‰ñ“]
                     for(l = 0; l < 4; l++){
                         temp[l][k] = J_mino[3 - k][l];
@@ -66,41 +68,162 @@ void jmino(void)
             break;
         }
 	
-	//Ý’uˆ—1@“r’†‚Éƒ~ƒm‚ª‚ ‚Á‚½ê‡
-	if(stage[height+1][x+3]==2 || stage[height+1][x+4]==2 || stage[height+1][x+5]==2){
-		stage[height][x+5]=2;
-		stage[height][x+4]=2;
-		stage[height][x+3]=2;
-		stage[height-1][x+3]=2;
-		break;
-	}
-	//Ý’uˆ—2@ˆê”Ô‰º‚Ü‚Ås‚­ê‡
-	if(height==17){
-		stage[height+1][x+5]=2;
-		stage[height+1][x+4]=2;
-		stage[height+1][x+3]=2;
-		stage[height][x+3]=2;
-		break;
-	}
-	
-	//—Ž‰º
-	else{
-        for(time = 0;time < 2;time++){
-            for(i = 0; i < 4; i++){
-                for(j = 0; j < 5; j++){
-                    if(J_mino[i][j] == 1){
-                        printFstr(x,height," ");
-                    }else{
-                        printFstr(x,height," ");
-                    }
-                    x+=1;
-                }
-                x-=4;
-                height+=1;
+        switch(cnt % 4)
+        {
+        case 0:
+            //Ý’uˆ—1@“r’†‚Éƒ~ƒm‚ª‚ ‚Á‚½ê‡
+            if(stage[height+1][x+3]==2 || stage[height+1][x+4]==2 || stage[height+1][x+5]==2){
+                stage[height][x+5]=2;
+                stage[height][x+4]=2;
+                stage[height][x+3]=2;
+                stage[height-1][x+3]=2;
+                height = GROUND;
             }
-            height-=4;
+            //Ý’uˆ—2@ˆê”Ô‰º‚Ü‚Ås‚­ê‡
+            else if(height==17){
+                stage[height+1][x+5]=2;
+                stage[height+1][x+4]=2;
+                stage[height+1][x+3]=2;
+                stage[height][x+3]=2;
+                height = GROUND;
+            }
+            //—Ž‰º
+            else{
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(J_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+            }
+            break;
+
+        case 1:
+            //Ý’uˆ—1@“r’†‚Éƒ~ƒm‚ª‚ ‚Á‚½ê‡
+            if(stage[height+1][x+4]==2 || stage[height-1][x+5]==2){
+                stage[height-2][x+5]=2;
+                stage[height-2][x+4]=2;
+                stage[height-1][x+4]=2;
+                stage[height][x+4]=2;
+                height = GROUND;
+            }
+            //Ý’uˆ—2@ˆê”Ô‰º‚Ü‚Ås‚­ê‡
+            else if(height==17){
+                stage[height-1][x+5]=2;
+                stage[height-1][x+4]=2;
+                stage[height][x+4]=2;
+                stage[height+1][x+4]=2;
+                height = GROUND;
+            }
+            //—Ž‰º
+            else{
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(J_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+            }
+            break;
+
+        case 2:
+            //Ý’uˆ—1@“r’†‚Éƒ~ƒm‚ª‚ ‚Á‚½ê‡
+            if(stage[height][x+4]==2 || stage[height][x+5]==2 || stage[height+1][x+6]==2){
+                stage[height][x+6]=2;
+                stage[height-1][x+4]=2;
+                stage[height-1][x+5]=2;
+                stage[height-1][x+6]=2;
+                height = GROUND;
+            }
+            //Ý’uˆ—2@ˆê”Ô‰º‚Ü‚Ås‚­ê‡
+            else if(height==17){
+                stage[height+1][x+6]=2;
+                stage[height][x+4]=2;
+                stage[height][x+5]=2;
+                stage[height][x+6]=2;
+                height = GROUND;
+            }
+            //—Ž‰º
+            else{
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(J_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+            }
+            break;
+        
+        case 3:
+            //Ý’uˆ—1@“r’†‚Éƒ~ƒm‚ª‚ ‚Á‚½ê‡
+            if(stage[height+2][x+4]==2 || stage[height+2][x+5]==2){
+                stage[height+1][x+4]=2;
+                stage[height+1][x+5]=2;
+                stage[height][x+5]=2;
+                stage[height-1][x+5]=2;
+                height = GROUND;
+            }
+            //Ý’uˆ—2@ˆê”Ô‰º‚Ü‚Ås‚­ê‡
+            else if(height==17){
+                stage[height+2][x+4]=2;
+                stage[height+2][x+5]=2;
+                stage[height+1][x+5]=2;
+                stage[height][x+5]=2;
+                height = GROUND;
+            }
+            //—Ž‰º
+            else{
+                for(time = 0;time < 2;time++){
+                    for(i = 0; i < 4; i++){
+                        for(j = 0; j < 4; j++){
+                            if(J_mino[i][j] == 1){
+                                printFstr(x,height," ");
+                            }else{
+                                printFstr(x,height," ");
+                            }
+                            x+=1;
+                        }
+                        x-=4;
+                        height+=1;
+                    }
+                    height-=4;
+                }
+                height++;
+            }
+            break;
+        
+        default:
+            break;
         }
-        height++;
-	}
     }
 }

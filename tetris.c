@@ -38,6 +38,7 @@ void dropMino(void);
 void tetris(void)
 {
     int i,j;
+    int a;      // gameOver判定
 
     initBase();
     initI2C();
@@ -53,19 +54,24 @@ void tetris(void)
                     printFstr(X_POS,Y_POS,"0");     // Aを変更（0：非表示/1：ミノ配置）
                 }else if(stage[j][i] == 1){
                     printFstr(X_POS,Y_POS,"1");
+                }else if(stage[j][i]==2){
+                    if(j==20){
+                        printFstr(X_POS,Y_POS,"2");
+                    }
+                    else{
+                        printFstr(X_POS,Y_POS,"#");
+                    }
                 }
-		else if(stage[j][i]==2){
-			if(j==20){
-				printFstr(X_POS,Y_POS,"2");
-			}
-			else{
-				printFstr(X_POS,Y_POS,"#");
-			}
-		}
             }
         }
-	
 
+        for(a = 1; a < 11; a++){
+            if(stage[1][a]>=2){
+                gameOver();
+            }else{
+                ;
+            }
+        }
         dropMino();
 	}
 }
