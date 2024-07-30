@@ -27,8 +27,9 @@ int stage[21][12]= {
     {1,0,0,0,0,0,0,0,0,0,0,1},
     {1,0,0,0,0,0,0,0,0,0,0,1},
     {1,0,0,0,0,0,0,0,0,0,0,1},
-    {1,1,1,1,1,1,1,1,1,1,1,1}
+    {1,2,2,2,2,2,2,2,2,2,2,1}
 };
+
 
 void gameClear(void);
 void gameOver(void);
@@ -53,8 +54,17 @@ void tetris(void)
                 }else if(stage[j][i] == 1){
                     printFstr(X_POS,Y_POS,"1");
                 }
+		else if(stage[j][i]==2){
+			if(j==20){
+				printFstr(X_POS,Y_POS,"2");
+			}
+			else{
+				printFstr(X_POS,Y_POS,"#");
+			}
+		}
             }
         }
+	
 
         dropMino();
 	}

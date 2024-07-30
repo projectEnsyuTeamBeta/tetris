@@ -5,8 +5,8 @@
 #include <string.h>
 
 #define LEFT_WALL   10  // ミノによって可変必要
-#define RIGHT_WALL  19  // ミノによって可変必要
-#define GROUND   21  // ミノによって可変&Stageの状態反映
+#define RIGHT_WALL  16  // ミノによって可変必要
+#define GROUND   18  // ミノによって可変&Stageの状態反映
 
 void imino(void)
 {
@@ -22,15 +22,14 @@ void imino(void)
     int time;
     int temp[4][4];     //回転
     int k,l;
-
-    // setTextColor(CLR_GREEN);
-
+    
     PORT0.PDR.BIT.B0 = 0;
     PORT0.PDR.BIT.B1 = 0;
     PORT0.PDR.BIT.B2 = 0;
 
     while(height < GROUND){
-        for(time = 0;time < 100;time++){
+	//ミノ描画
+        for(time = 0;time < speed;time++){
             for(i = 0; i < 4; i++){
                 for(j = 0; j < 4; j++){
                     if(I_mino[i][j] == 1){
@@ -46,7 +45,8 @@ void imino(void)
             height-=4;
         }
 
-        while(1){       // SW4,5,6操作
+	//移動・回転
+        while(1){    
             if(PORT0.PIDR.BIT.B0 == 1 && x > LEFT_WALL){    // SW4左移動
                 x -= 1;
                 break;
@@ -65,6 +65,27 @@ void imino(void)
             for(time = 0;time <10;time++);
             break;
         }
+	
+	
+	//設置処理1　途中にミノがあった場合
+	if(stage[height+1][x+6]==2 || stage[height+1][x+5]==2 || stage[height+1][x+4]==2 || stage[height+1][x+3]==2){
+		stage[height][x+6]=2;
+		stage[height][x+5]=2;
+		stage[height][x+4]=2;
+		stage[height][x+3]=2;
+		break;
+	}
+	//設置処理2　一番下まで行く場合
+	else if(height==17){
+		stage[height+1][x+6]=2;
+		stage[height+1][x+5]=2;
+		stage[height+1][x+4]=2;
+		stage[height+1][x+3]=2;
+		break;
+	}
+	
+	//落下
+	else{
         for(time = 0;time < 2;time++){
             for(i = 0; i < 4; i++){
                 for(j = 0; j < 4; j++){
@@ -80,11 +101,8 @@ void imino(void)
             }
             height-=4;
         }
-        if(stage[height][x] == 0){
-            height++;
-        }else{
-            stage[height][x] = 1;
-        }
+        height++;
+	}
         
     }
 }

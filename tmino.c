@@ -1,11 +1,12 @@
 #include "lcdlib.h"
 #include "i2clib.h"
 #include "iodefine.h"
+#include "field.h"
 #include <string.h>
 
 #define LEFT_WALL   10  // ミノによって可変必要
-#define RIGHT_WALL  19  // ミノによって可変必要
-#define GROUND   21  // ミノによって可変&Stageの状態反映
+#define RIGHT_WALL  17  // ミノによって可変必要
+#define GROUND   18  // ミノによって可変&Stageの状態反映
 
 void tmino(void)
 {
@@ -27,7 +28,8 @@ void tmino(void)
     PORT0.PDR.BIT.B2 = 0;
 
     while(height < GROUND){
-        for(time = 0;time < 100;time++){
+	//ミノ描画
+        for(time = 0;time < speed;time++){
             for(i = 0; i < 4; i++){
                 for(j = 0; j < 4; j++){
                     if(T_mino[i][j] == 1){
@@ -42,7 +44,8 @@ void tmino(void)
             }
             height-=4;
         }
-
+	
+	//移動・回転
         while(1){ 
             if(PORT0.PIDR.BIT.B0 == 1 && x > LEFT_WALL){
                 x -= 1;
@@ -62,6 +65,25 @@ void tmino(void)
             for(time = 0;time <10;time++);
             break;
         }
+	
+	
+	//設置処理1　途中にミノがあった場合
+	if(stage[height+1][x+3]==2 || stage[height+1][x+4]==2 || stage[height+1][x+5]==2){
+		stage[height][x+5]=2;
+		stage[height][x+4]=2;
+		stage[height][x+3]=2;
+		stage[height-1][x+4]=2;
+		break;
+	}
+	//設置処理2　一番下まで行く場合
+	else if(height==17){
+		stage[height+1][x+5]=2;
+		stage[height+1][x+4]=2;
+		stage[height+1][x+3]=2;
+		stage[height][x+4]=2;
+		break;
+	}
+	//落下
         for(time = 0;time < 2;time++){
             for(i = 0; i < 4; i++){
                 for(j = 0; j < 4; j++){
