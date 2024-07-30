@@ -12,7 +12,7 @@ void dropMino(void)
 {
     int max = 6; // —”Å‘å
     int min = 0; // —”Å¬
-    int makeMino=min+(int)(rand()*(max-min+1)/(1+RAND_MAX)); //@—””­¶
+    int makeMino=3;  //min+(int)(rand()*(max-min+1)/(1+RAND_MAX)); //@—””­¶
     
     switch (makeMino)
     {
