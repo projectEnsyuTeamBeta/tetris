@@ -10,9 +10,9 @@ void omino(void);
 
 void dropMino(void)
 {
-    int max = 6; // —”Å‘å
-    int min = 0; // —”Å¬
-    int makeMino=3;  //min+(int)(rand()*(max-min+1)/(1+RAND_MAX)); //@—””­¶
+    int max = 6; // ä¹±æ•°æœ€å¤§
+    int min = 0; // ä¹±æ•°æœ€å°
+    int makeMino = min+(int)(rand()*(max-min+1)/(1+RAND_MAX)); //ã€€ä¹±æ•°ç™ºç”Ÿ
     
     switch (makeMino)
     {
