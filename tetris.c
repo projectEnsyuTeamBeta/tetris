@@ -61,8 +61,6 @@ void tetris(void)
 
     int i, j;
     int a;      /* ゲー�?オーバ�?�の判定に使用　*/
-    int flag[21] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};  /* 列消去に使用?��添え字�?�y座標において、x座標がすべて埋まって�?るかを判定す�? */
-
 
     initBase();
     initI2C();
@@ -78,12 +76,12 @@ void tetris(void)
         for (j = 0; j < 21; j++) {                        
             for (i = 0; i < 12; i++) {
                 if (g_stage[j][i] == 0) {
-                    printFstr(X_POS, Y_POS, "0");     
+                    printFstr(X_POS, Y_POS, " ");     
                 } else if (g_stage[j][i] == 1) {
-                    printFstr(X_POS, Y_POS, "1");
+                    printFstr(X_POS, Y_POS, "O");
                 } else if(g_stage[j][i] == 2) {
                     if (j == 20) {
-                        printFstr(X_POS, Y_POS, "2");
+                        printFstr(X_POS, Y_POS, "O");
                     }
                     else {
                         printFstr(X_POS, Y_POS, "#");
@@ -95,11 +93,8 @@ void tetris(void)
     /*-----------------------------------
         ゲー�?オーバ�?�判�?
     -----------------------------------*/
-        //x座標�?�値を指すaがずれて�?る�?�で�?きなりゲー�?オーバ�?�になる�?�かも?���?X?��POS現象?�?
         for (a = 1; a < 11; a++) {
             if (g_stage[1][a] >= 2) {
-
-
                 gameOver();
             } else {
                 ;
@@ -108,23 +103,6 @@ void tetris(void)
     /*-----------------------------------
         新しいミノの処�?開�?
     -----------------------------------*/
-        dropMino();
-
-       /* //delete呼び出し判�?
-        for(j = 1; j < 21; j++){
-            for(i = 1; i < 11;i++){
-                if(g_stage[j][i] == 2){
-                    flag[j]++;
-                }
-                else{
-                    flag[j]=0;
-                    break;
-                }
-            }
-            if(flag[j]==10){
-                delete(j);
-            }
-        }*/
-        
+        dropMino();    
 	}
 }
