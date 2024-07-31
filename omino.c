@@ -49,14 +49,14 @@ void omino(void)
         ミノの描画
     -----------------------------------*/
     while (height < GROUND) {
-        for (time = 0; time < 100; time++) {
+        for (time = 0; time < SPEED; time++) {
             for (i = 0; i < 4; i++) {
                 for (j = 0; j < 4; j++) {
                     if (O_mino[i][j] == 1) {
-                        printFstr(x,height, "#");
+                        printFstr(x, height, "#");
                     }
 		            else {
-                        printFstr(x,height, " ");
+                        printFstr(x, height, " ");
                     }
                     x += 1;
                 }
@@ -80,7 +80,7 @@ void omino(void)
                 ;                                   /* 回転させない */
             }
             /* ウェイト */
-            for (time = 0; time < 10; time++);
+            for (time = 0; time <10; time++);
             break;
         }
 
@@ -93,7 +93,7 @@ void omino(void)
             g_stage[height - 1][x + 5] = 2;
             g_stage[height][x + 4] = 2;
             g_stage[height - 1][x + 4] = 2;
-            break;
+            height = GROUND;
         }
         /* 設置処理2　一番下まで行く場合 */
         else if (height == 17) {
@@ -101,11 +101,11 @@ void omino(void)
             g_stage[height][x + 5] = 2;
             g_stage[height + 1][x + 4] = 2;
             g_stage[height][x + 4] = 2;
-            break;
+            height = GROUND;
         }
         /* 落下処理 */
         else{
-            for (time = 0; time < SPEED; time++) {
+            for (time = 0; time < (SPEED); time++) {
                 for (i = 0; i < 4; i++) {
                     for (j = 0; j < 4; j++) {
                         if (O_mino[i][j] == 1) {
