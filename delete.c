@@ -12,7 +12,7 @@
 #define EXIST_MINO 0
 #define HIGHER_STAGE -1
 
-void delete(void)
+/*void delete(void)
 {
     int a,i,l,x,y,z;
     
@@ -53,4 +53,11 @@ void delete(void)
         
     }
     
+}*/
+
+void derete(int y){
+    int i;
+    for(i=1+9; i<11+9; i++){
+        stage[y][i]=0;
+    }
 }

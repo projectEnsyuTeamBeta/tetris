@@ -34,11 +34,13 @@ int stage[21][12]= {
 void gameClear(void);
 void gameOver(void);
 void dropMino(void);
+void derete(int);
 
 void tetris(void)
 {
     int i,j;
     int a;      // gameOver判定
+    int flag[21]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}; //添え字のy座標において、x座標がすべて埋まっているかを判定する
 
     initBase();
     initI2C();
@@ -65,6 +67,7 @@ void tetris(void)
             }
         }
 
+        //x座標の値を指すaがずれているのでいきなりゲームオーバーになるのかも？（X＿POS現象）
         for(a = 1; a < 11; a++){
             if(stage[1][a]>=2){
                 gameOver();
@@ -73,5 +76,22 @@ void tetris(void)
             }
         }
         dropMino();
+
+        //derete呼び出し判定
+        for(j = 1; j < 21; j++){
+            for(i = 1; i < 11;i++){
+                if(stage[j][i] == 2){
+                    flag[j]++;
+                }
+                else{
+                    flag[j]=0;
+                    break;
+                }
+            }
+            if(flag[j]==10){
+                derete(j);
+            }
+        }
+        
 	}
 }
