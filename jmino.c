@@ -111,7 +111,7 @@ void jmino(void)
                 break;
             }
             /* ウェイト */
-            for (time = 0; time <10; time++);
+            for (time = 0; time < 10; time++);
             break;
         }
 

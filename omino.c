@@ -80,7 +80,7 @@ void omino(void)
                 ;                                   /* 回転させない */
             }
             /* ウェイト */
-            for (time = 0; time <10; time++);
+            for (time = 0; time < 10; time++);
             break;
         }
 
@@ -115,10 +115,10 @@ void omino(void)
                         }
                         x += 1;
                     }
-                    x -=4 ;
-                    height +=1 ;
+                    x -= 4 ;
+                    height += 1 ;
                 }
-                height -=4 ;
+                height -= 4 ;
             }
             height++;
         }

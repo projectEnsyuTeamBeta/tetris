@@ -11,8 +11,8 @@ Copyright(c) 2024   Team Beta
 #include "iodefine.h"
 #include "field.h"
 
-#define X_POS    i + 9      /* ã‚¹ãƒ?ãƒ¼ã‚¸åº§æ¨™ã?®Xè»¸ */
-#define Y_POS    j + 1      /* ã‚¹ãƒ?ãƒ¼ã‚¸åº§æ¨™ã?®Yè»¸ */
+#define X_POS    i + 9      /* ƒXƒe[ƒWÀ•W‚ÌX² */
+#define Y_POS    j + 1      /* ƒXƒe[ƒWÀ•W‚ÌY² */
 
 int g_stage[21][12]= {
     {1,0,0,0,0,0,0,0,0,0,0,1},
@@ -60,7 +60,7 @@ void tetris(void)
 {
 
     int i, j;
-    int a;      /* ã‚²ãƒ¼ãƒ?ã‚ªãƒ¼ãƒã?¼ã®åˆ¤å®šã«ä½¿ç”¨ã€€*/
+    int a;      /* ƒQ[ƒ€ƒI[ƒo[‚Ì”»’è‚Ég—p@*/
 
     initBase();
     initI2C();
@@ -71,7 +71,7 @@ void tetris(void)
 
 	while (1) {
     /*-----------------------------------
-        ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã?®åº§æ¨™ã‚’LCDã«è¡¨ç¤º
+        ƒtƒB[ƒ‹ƒh‚ÌÀ•W‚ğLCD‚É•\¦
     -----------------------------------*/
         for (j = 0; j < 21; j++) {                        
             for (i = 0; i < 12; i++) {
@@ -79,11 +79,10 @@ void tetris(void)
                     printFstr(X_POS, Y_POS, " ");     
                 } else if (g_stage[j][i] == 1) {
                     printFstr(X_POS, Y_POS, "O");
-                } else if(g_stage[j][i] == 2) {
+                } else if (g_stage[j][i] == 2) {
                     if (j == 20) {
                         printFstr(X_POS, Y_POS, "O");
-                    }
-                    else {
+                    } else {
                         printFstr(X_POS, Y_POS, "#");
                     }
                 }
@@ -91,7 +90,7 @@ void tetris(void)
         }
 
     /*-----------------------------------
-        ã‚²ãƒ¼ãƒ?ã‚ªãƒ¼ãƒã?¼åˆ¤å®?
+        ƒQ[ƒ€ƒI[ƒo[”»’è
     -----------------------------------*/
         for (a = 1; a < 11; a++) {
             if (g_stage[1][a] >= 2) {
@@ -101,7 +100,7 @@ void tetris(void)
             }
         }
     /*-----------------------------------
-        æ–°ã—ã„ãƒŸãƒã®å‡¦ç?é–‹å§?
+        V‚µ‚¢ƒ~ƒm‚Ìˆ—ŠJn
     -----------------------------------*/
         dropMino();    
 	}

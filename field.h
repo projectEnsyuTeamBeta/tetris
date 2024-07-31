@@ -10,6 +10,6 @@ Copyright(c) 2024   Team Beta
 #define FIELD_H
 
 extern int g_stage[21][12]; 
-#define SPEED 30        /* ミノの落下速度設定 */
+#define SPEED 50        /* ミノの落下速度設定 */
 
 #endif
